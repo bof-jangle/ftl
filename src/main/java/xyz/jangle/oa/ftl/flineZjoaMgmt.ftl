@@ -5,7 +5,11 @@ import java.util.Map;
 import com.feixian.tp.common.vo.Ordering;
 import com.feixian.tp.common.vo.Pagination;
 import com.fline.zjoa.access.model.${beanName};
-
+/**
+ * <!-- 工具1.0生成 -->
+ * @author huhj
+ *
+ */
 public interface ${beanName}MgmtService {
 	/**
 	 * 分页查询

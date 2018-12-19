@@ -16,7 +16,7 @@ public class XmlAppendUtils {
 	 */
 	public static void addAccessXml(String pathAndFileName,String beanNameVar,String beanName) {
 		String insertPosition = "</beans>";
-		String insertStr = "<bean id=\""+beanNameVar+"AccessService\"\r\n" + 
+		String insertStr = "\n	<bean id=\""+beanNameVar+"AccessService\"\r\n" + 
 				"		class=\"com.fline.zjoa.access.service.impl."+beanName+"AccessServiceImpl\"\r\n" + 
 				"		parent=\"abstractNamespaceAccessService\">\r\n" + 
 				"	</bean>";
@@ -31,7 +31,7 @@ public class XmlAppendUtils {
 	 */
 	public static void addBunissXml(String pathAndFileName,String beanNameVar,String beanName) {
 		String insertPosition = "</beans>";
-		String insertStr = "	<bean id=\""+beanNameVar+"MgmtService\" class=\"com.fline.zjoa.mgmt.service.impl."+beanName+"MgmtServiceImpl\">\r\n" + 
+		String insertStr = "\n	<bean id=\""+beanNameVar+"MgmtService\" class=\"com.fline.zjoa.mgmt.service.impl."+beanName+"MgmtServiceImpl\">\r\n" + 
 				"		<property name=\""+beanNameVar+"AccessService\" ref=\""+beanNameVar+"AccessService\" />\r\n" + 
 				"	</bean>";
 		insertStr += "\n</beans>";

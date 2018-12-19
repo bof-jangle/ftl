@@ -1,12 +1,16 @@
 package com.fline.zjoa.access.model;
 
-import java.util.Date;
-
 import com.feixian.tp.model.LifecycleModel;
-
+/**
+ * <!-- 工具1.0生成 -->
+ * @author huhj
+ *
+ */
 public class ${beanName} extends LifecycleModel {
 
 	private static final long serialVersionUID = 1L;
+	
+	public static final String tableName = "${tableName}";
 
 	<#list columnList as row>
 	<#if row.beanProperty != "id">

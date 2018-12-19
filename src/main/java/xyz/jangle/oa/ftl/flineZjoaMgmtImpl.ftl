@@ -7,7 +7,11 @@ import com.feixian.tp.common.vo.Pagination;
 import com.fline.zjoa.access.model.${beanName};
 import com.fline.zjoa.access.service.${beanName}AccessService;
 import com.fline.zjoa.mgmt.service.${beanName}MgmtService;
-
+/**
+ * <!-- 工具1.0生成 -->
+ * @author huhj
+ *
+ */
 public class ${beanName}MgmtServiceImpl implements ${beanName}MgmtService {
 
 	private ${beanName}AccessService ${beanNameVar}AccessService;

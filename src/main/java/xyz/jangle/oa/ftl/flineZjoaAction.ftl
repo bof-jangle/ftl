@@ -6,17 +6,20 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.util.StringUtils;
-
 import com.feixian.aip.platform.common.action.AbstractAction;
 import com.feixian.tp.common.vo.Ordering;
 import com.feixian.tp.common.vo.Pagination;
 import com.fline.zjoa.access.model.${beanName};
+import com.fline.zjoa.access.model.OaUtils;
 import com.fline.zjoa.mgmt.service.${beanName}MgmtService;
 import com.fline.zjoa.util.OaConstant;
 import com.fline.zjoa.util.OaRM;
 import com.opensymphony.xwork2.ModelDriven;
-
+/**
+ * <!-- 工具1.0生成 -->
+ * @author huhj
+ *
+ */
 public class ${beanName}Action extends AbstractAction implements ModelDriven<${beanName}> {
 
 	/**
@@ -39,7 +42,7 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 		page.setSize(pageSize);
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("model", getModel());
-		if (!StringUtils.isEmpty(this.getStartEndDate())) {
+		if (OaUtils.isNotEmptyString(this.getStartEndDate())) {
 			String[] dateArr = this.getStartEndDate().split("-");
 			SimpleDateFormat sdf = new SimpleDateFormat(OaConstant.datetimeFormatterFromList);
 			try {

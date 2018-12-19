@@ -34,14 +34,13 @@ public class TableInfoUtil {
 			
 			dbmd = conn.getMetaData();
 			ResultSet resultSet = dbmd.getTables(null, "%", table, new String[] { "TABLE" });
-			
 			while (resultSet.next()) {
 		    	String tableName=resultSet.getString("TABLE_NAME");
 		    	System.out.println("表名称:"+tableName);
 		    	
 		    	if(tableName.equals(table)){
 		    		ResultSet rs = conn.getMetaData().getColumns(null, getSchema(conn),tableName.toUpperCase(), "%");
- 
+		    		System.out.println(rs);
 		    		while(rs.next()){
 		    			//System.out.println("字段名："+rs.getString("COLUMN_NAME")+"--字段注释："+rs.getString("REMARKS")+"--字段数据类型："+rs.getString("TYPE_NAME"));
 		    			Map<String, String> map = new HashMap<String, String>();

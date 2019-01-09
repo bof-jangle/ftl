@@ -8,5 +8,10 @@ import com.fline.zjoa.access.model.${beanName};
  *
  */
 public interface ${beanName}AccessService extends AbstractNamespaceAccessService<${beanName}> {
-
+	/**
+	 * 根据uuid查询记录
+	 * @param uuid
+	 * @return
+	 */
+	${beanName} findByOaUuid(String oaUuid);
 }

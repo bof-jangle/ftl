@@ -30,8 +30,9 @@ public class ZJOAM {
 	public static Boolean action = true;
 
 	public static void main(String[] args) {
-		
-		buildFile("oa_form_key");
+		buildFile("oa_test");
+//		buildFile("oa_group_dep_r");
+//		buildFile("oa_group_user_r");
 	}
 	/**
 	 * 

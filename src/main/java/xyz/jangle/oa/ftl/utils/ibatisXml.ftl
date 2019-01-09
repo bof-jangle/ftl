@@ -62,6 +62,11 @@
 			SELECT * FROM ${tableName} A WHERE id=#id#
 		]]>
 	</select>
+	<select id="findByOaUuid" parameterClass="${beanNameVar}" resultMap="${beanNameVar}Result">
+		<![CDATA[
+			SELECT * FROM ${tableName} A WHERE oa_uuid=#oaUuid#
+		]]>
+	</select>
 	<sql id="sql_where">
 		<dynamic prepend="WHERE">
 			

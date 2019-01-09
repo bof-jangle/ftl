@@ -10,5 +10,11 @@ import com.fline.zjoa.access.service.${beanName}AccessService;
  *
  */
 public class ${beanName}AccessServiceImpl extends AbstractNamespaceAccessServiceImpl<${beanName}> implements ${beanName}AccessService {
-
+	
+	@Override
+	public ${beanName} findByOaUuid(String oaUuid) {
+		${beanName} ${beanNameVar} = new ${beanName}();
+		${beanNameVar}.setOaUuid(oaUuid);
+		return this.getIbatisDataAccessObject().findOne(namespace, "findByOaUuid", ${beanNameVar});
+	}
 }

@@ -24,7 +24,7 @@ public class FreemarkerUtil {
 	 */
 	public Template getTemplete(String natemplateFileName) throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException {
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);//这里是对应的你使用jar包的版本号
-		configuration.setClassForTemplateLoading(this.getClass(), "../");
+		configuration.setClassForTemplateLoading(this.getClass(), "");
 		Template template = configuration.getTemplate(natemplateFileName);
 		return template;
 	}

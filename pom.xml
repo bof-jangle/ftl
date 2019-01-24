@@ -28,6 +28,7 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- 设置MAVEN的编译的JDK版本为1.8 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>

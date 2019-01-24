@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.feixian.tp.common.vo.Ordering;
 import com.feixian.tp.common.vo.Pagination;
+import com.fline.oa.utils.ServiceSupport;
 import com.fline.zjoa.access.model.${beanName};
 import com.fline.zjoa.access.service.${beanName}AccessService;
 import com.fline.zjoa.mgmt.service.${beanName}MgmtService;
@@ -12,7 +13,7 @@ import com.fline.zjoa.mgmt.service.${beanName}MgmtService;
  * @author huhj
  *
  */
-public class ${beanName}MgmtServiceImpl implements ${beanName}MgmtService {
+public class ${beanName}MgmtServiceImpl extends ServiceSupport implements ${beanName}MgmtService {
 
 	private ${beanName}AccessService ${beanNameVar}AccessService;
 

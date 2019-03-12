@@ -20,6 +20,13 @@
 	<select id="sequence">
 		<include refid="sql_sequence" />
 	</select>
+	<sql id="all_column">
+		<![CDATA[
+			<#list columnList as row>
+			${row.column}<#if row_has_next>,</#if>
+			</#list>
+		]]>
+	</sql>
 	<insert id="create" parameterClass="${beanNameVar}">
 		
 		<![CDATA[
@@ -58,14 +65,14 @@
 		]]>
 	</delete>
 	<select id="findById" parameterClass="Long" resultMap="${beanNameVar}Result">
-		<![CDATA[
-			SELECT * FROM ${tableName} A WHERE id=#id#
-		]]>
+			SELECT
+			<include refid="all_column"/>
+			FROM ${tableName} A WHERE id=#id#
 	</select>
 	<select id="findByOaUuid" parameterClass="${beanNameVar}" resultMap="${beanNameVar}Result">
-		<![CDATA[
-			SELECT * FROM ${tableName} A WHERE oa_uuid=#oaUuid#
-		]]>
+			SELECT
+			<include refid="all_column"/>
+			FROM ${tableName} A WHERE oa_uuid=#oaUuid#
 	</select>
 	<sql id="sql_where">
 		<dynamic prepend="WHERE">
@@ -77,11 +84,13 @@
 		<include refid="sql_where" />
 	</sql>
 	<select id="findAll" resultMap="${beanNameVar}Result">
-		<![CDATA[ SELECT * ]]>
+		SELECT
+		<include refid="all_column"/>
 		<include refid="sql_from" />
 	</select>
 	<select id="find" resultMap="${beanNameVar}Result">
-		<![CDATA[ SELECT * ]]>
+		SELECT
+		<include refid="all_column"/>
 		<include refid="sql_from" />
 		<isNotNull property="_orderBy">
 			order by $_orderBy$

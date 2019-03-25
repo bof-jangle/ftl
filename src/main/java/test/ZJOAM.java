@@ -1,5 +1,6 @@
 package test;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,9 +29,11 @@ public class ZJOAM {
 	public static Boolean access = true;
 	public static Boolean mgmt = true;
 	public static Boolean action = true;
+	public static Boolean jsp = true;
+	public static Boolean mgmtTest = true;
 
 	public static void main(String[] args) {
-		buildFile("oa_test");
+		buildFile("oa_demo");
 //		buildFile("oa_group_dep_r");
 //		buildFile("oa_group_user_r");
 	}
@@ -83,6 +86,23 @@ public class ZJOAM {
 			System.out.println("开始生成Action，以及配置文件的action");
 			FreemarkerUtil.createFile("flineZjoaAction.ftl", dataModel, System.getProperty("user.dir")+"/../"+coreName+"/src/com/fline/zjoa/action/"+beanName+"Action.java");
 			XmlAppendUtils.addStrutsXml(strutsXmlFullName, beanNameVar, beanName);
+		}
+		if(jsp) {
+			System.out.println("检测并生成前端页面目录");
+			String jspPath = System.getProperty("user.dir")+"/../"+runTimeName+"/web/childPage/"+beanNameVar;
+			File jspPathFile = new File(jspPath);
+			if(!jspPathFile.exists()) {
+				System.out.println("生成目录:"+jspPath);
+				jspPathFile.mkdirs();
+			}
+			System.out.println("开始生成前端jsp页面");
+			FreemarkerUtil.createFile("flineZjoaListJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"List.jsp");
+			FreemarkerUtil.createFile("flineZjoaEditJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"Edit.jsp");
+			FreemarkerUtil.createFile("flineZjoaOpenJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"Open.jsp");
+		}
+		if(mgmtTest) {
+			System.out.println("开始生成单元测试");
+			FreemarkerUtil.createFile("flineZjoaMgmtImplTest.ftl", dataModel, System.getProperty("user.dir")+"/../"+runTimeName+"/test/com/fline/zjoa/mgmt/service/impl/"+beanName+"MgmtServiceImplTest.java");
 		}
 	}
 	/**

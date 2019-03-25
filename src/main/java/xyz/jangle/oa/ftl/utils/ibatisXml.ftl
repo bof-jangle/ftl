@@ -39,7 +39,13 @@
 		) VALUES (
 			<#list columnList as row>
 			<#if row.beanProperty != "id" >
+			<#if row.beanProperty == "oaCreateTime" || row.beanProperty == "oaUpdateTime">
+			now()<#if row_has_next>,</#if>
+			<#elseif row.beanProperty == "oaUuid">
+			REPLACE(UUID(), '-', '')<#if row_has_next>,</#if>
+			<#else>
 			#${row.beanProperty}#<#if row_has_next>,</#if>
+			</#if>
 			</#if>
 			</#list>
 		)
@@ -52,8 +58,12 @@
 		<![CDATA[
 		UPDATE ${tableName} SET
 		<#list columnList as row>
-			<#if row.beanProperty != "id">
+			<#if row.beanProperty != "id" && row.beanProperty != "oaCreateTime" && row.beanProperty != "oaUuid" >
+				<#if row.beanProperty == "oaUpdateTime">
+				${row.column} = now()<#if row_has_next>,</#if>
+				<#else>
 				${row.column} = #${row.beanProperty}#<#if row_has_next>,</#if>
+				</#if>
 			</#if>
 		</#list>
 		WHERE id=#id#

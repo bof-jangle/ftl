@@ -25,7 +25,7 @@ public interface ${beanName}MgmtService {
 	 * @param ${beanNameVar}
 	 * @return
 	 */
-	${beanName} add${beanName}(${beanName}  ${beanNameVar});
+	Map<String, Object> add${beanName}(${beanName}  ${beanNameVar});
 	/**
 	 * 删除记录
 	 * @param ${beanNameVar}

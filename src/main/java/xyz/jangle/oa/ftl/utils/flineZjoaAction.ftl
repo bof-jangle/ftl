@@ -65,8 +65,7 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 
 	//添加记录
 	public String add${beanName}() {
-		dataMap.put("result", ${beanNameVar}MgmtService.add${beanName}(getModel()));
-		dataMap.put("rm", OaRM.success);
+		dataMap = ${beanNameVar}MgmtService.add${beanName}(getModel());
 		return SUCCESS;
 	}
 

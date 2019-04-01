@@ -26,7 +26,7 @@
 	</div>
 	<form onsubmit="return false;" class="form form-horizontal"
 		id="approvalForm" name="approvalForm">
-		<table class="base_viewTable">
+		<table class="base_viewTable oaTable">
 			<!-- colspan不要随便写，要取每行td总数的最小公倍数，然后平分，然后可以通过设置width调节大小 -->
 			<#list columnList as row>
 			<#if row.beanProperty != "id" && row.beanProperty != "oaUuid" && row.beanProperty != "oaCreateTime" && row.beanProperty != "oaUpdateTime">

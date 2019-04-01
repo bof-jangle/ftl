@@ -43,6 +43,7 @@
 				data-pagination-next-text="下一页" data-pagination-last-text="末页">
 				<thead style="text-align: center;">
 					<tr>
+						<th  data-formatter="numberAsc" data-width="50">序号</th>
 						<th data-field="id" data-formatter="titleFormatter">id</th>
 						<!--<th data-field="demo...">...增加字段展示的地方</th> -->
 						<th data-field="oaCreateTime" data-formatter="dateFormatter">创建日期</th>

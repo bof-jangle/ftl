@@ -58,8 +58,8 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 		Ordering order = new Ordering();
 		order.addDesc("id");
 		page = ${beanNameVar}MgmtService.findPagination(param, order, page);
-		dataMap.put("result", page);
-		dataMap.put("rm", OaRM.success);
+		dataMap.put(OaConstant.result, page);
+		dataMap.put(OaRM.rm, OaRM.success);
 		return SUCCESS;
 	}
 
@@ -71,22 +71,22 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 
 	//删除记录
 	public String remove${beanName}() {
-		dataMap.put("result", ${beanNameVar}MgmtService.remove${beanName}(getModel()));
-		dataMap.put("rm", OaRM.success);
+		dataMap.put(OaConstant.result, ${beanNameVar}MgmtService.remove${beanName}(getModel()));
+		dataMap.put(OaRM.rm, OaRM.success);
 		return SUCCESS;
 	}
 
 	//更新记录
 	public String update${beanName}() {
-		dataMap.put("result", ${beanNameVar}MgmtService.update${beanName}(getModel()));
-		dataMap.put("rm", OaRM.success);
+		dataMap.put(OaConstant.result, ${beanNameVar}MgmtService.update${beanName}(getModel()));
+		dataMap.put(OaRM.rm, OaRM.success);
 		return SUCCESS;
 	}
 
 	//查询记录
 	public String findById() {
-		dataMap.put("result", ${beanNameVar}MgmtService.findById(getModel()));
-		dataMap.put("rm", OaRM.success);
+		dataMap.put(OaConstant.result, ${beanNameVar}MgmtService.findById(getModel()));
+		dataMap.put(OaRM.rm, OaRM.success);
 		return SUCCESS;
 	}
 

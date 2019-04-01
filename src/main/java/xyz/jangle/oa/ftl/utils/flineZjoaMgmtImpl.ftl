@@ -24,7 +24,7 @@ public class ${beanName}MgmtServiceImpl extends ServiceSupport implements ${bean
 
 	@Override
 	public Map<String, Object> add${beanName}(${beanName} ${beanNameVar}) {
-		map.put("result", ${beanNameVar}AccessService.save(${beanNameVar}));
+		map.put(OaConstant.result, ${beanNameVar}AccessService.save(${beanNameVar}));
 		map.put(OaRM.rm, OaRM.success);
 		return map;
 	}

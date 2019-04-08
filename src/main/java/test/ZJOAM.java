@@ -33,7 +33,9 @@ public class ZJOAM {
 	public static Boolean mgmtTest = true;
 
 	public static void main(String[] args) {
-		buildFile("oa_demo");
+		buildFile("oa_test");
+//		buildFile("act_ru_task");
+//		buildFile("oa_zxta_reader");
 //		buildFile("oa_group_dep_r");
 //		buildFile("oa_group_user_r");
 	}

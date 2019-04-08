@@ -28,7 +28,7 @@ public class ${beanName}MgmtServiceImplTest extends JUnitRuntimeSupport {
 	public void setUp() throws Exception {
 		userLogin();
 		${beanName} model = new ${beanName}();
-		testModel = ${beanNameVar}MgmtService.add${beanName}(model);
+		testModel = (${beanName})${beanNameVar}MgmtService.add${beanName}(model).get("result");
 	}
 
 	@After

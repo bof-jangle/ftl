@@ -1,6 +1,7 @@
 package com.fline.zjoa.mgmt.service.impl;
 
 import java.util.Map;
+import java.util.HashMap;
 
 import com.feixian.tp.common.vo.Ordering;
 import com.feixian.tp.common.vo.Pagination;
@@ -8,6 +9,8 @@ import com.fline.oa.utils.ServiceSupport;
 import com.fline.zjoa.access.model.${beanName};
 import com.fline.zjoa.access.service.${beanName}AccessService;
 import com.fline.zjoa.mgmt.service.${beanName}MgmtService;
+import com.fline.zjoa.util.OaConstant;
+import com.fline.zjoa.util.OaRM;
 /**
  * <!-- 工具1.0生成 -->
  * @author huhj
@@ -24,6 +27,7 @@ public class ${beanName}MgmtServiceImpl extends ServiceSupport implements ${bean
 
 	@Override
 	public Map<String, Object> add${beanName}(${beanName} ${beanNameVar}) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put(OaConstant.result, ${beanNameVar}AccessService.save(${beanNameVar}));
 		map.put(OaRM.rm, OaRM.success);
 		return map;

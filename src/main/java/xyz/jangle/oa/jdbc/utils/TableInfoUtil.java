@@ -15,7 +15,7 @@ import java.util.Properties;
 public class TableInfoUtil {
 	
 	/**
-	 * 根据数据库的连接参数，获取指定表的基本信息：字段名、字段类型、字段注释
+	 * 根据数据库的连接参数，获取指定表的列信息：字段名、字段类型、字段注释
 	 * @param driver 数据库连接驱动
 	 * @param url 数据库连接url
 	 * @param user	数据库登陆用户名
@@ -23,7 +23,7 @@ public class TableInfoUtil {
 	 * @param table	表名
 	 * @return Map集合
 	 */
-	public static List<Map<String, String>> getTableInfo(String driver,String url,String user,String pwd,String table){
+	public static List<Map<String, String>> getColumnsInfo(String driver,String url,String user,String pwd,String table){
 		List<Map<String, String>> result = new ArrayList<Map<String,String>>();
 		
 		Connection conn = null;		
@@ -36,7 +36,12 @@ public class TableInfoUtil {
 			ResultSet resultSet = dbmd.getTables(null, "%", table, new String[] { "TABLE" });
 			while (resultSet.next()) {
 		    	String tableName=resultSet.getString("TABLE_NAME");
+		    	String tableRemarks=resultSet.getString("REMARKS");
 		    	System.out.println("表名称:"+tableName);
+		    	System.out.println("表注释:"+tableRemarks);
+//		    	for(int i=1;i<11;i++) {
+//		    		System.out.println("表"+i+":"+resultSet.getString(i));
+//		    	}
 		    	
 		    	if(tableName.equals(table)){
 		    		ResultSet rs = conn.getMetaData().getColumns(null, getSchema(conn),tableName.toUpperCase(), "%");
@@ -73,6 +78,45 @@ public class TableInfoUtil {
 		
 		return result;
 	}
+	/**
+	 * 根据数据库的连接参数，获取指定表的信息
+	 * @param driver 数据库连接驱动
+	 * @param url 数据库连接url
+	 * @param user	数据库登陆用户名
+	 * @param pwd 数据库登陆密码
+	 * @param table	表名
+	 * @return 表注释
+	 */
+	public static String getTableRemarks(String driver,String url,String user,String pwd,String table){
+		Connection conn = null;		
+		DatabaseMetaData dbmd = null;
+		try {
+			conn = getConnections(driver,url,user,pwd);
+			dbmd = conn.getMetaData();
+			ResultSet resultSet = dbmd.getTables(null, "%", table, new String[] { "TABLE" });
+			while (resultSet.next()) {
+		    	String tableName=resultSet.getString("TABLE_NAME");
+		    	System.out.println("表名称:"+tableName);
+		    	if(tableName.equals(table)){
+		    		String tableRemarks=resultSet.getString("REMARKS");
+		    		System.out.println("表注释:"+tableRemarks);
+		    		return tableRemarks;
+		    	}
+		    }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return "";
+	}
+	
 	
 	private static String jdbcType2javaType(String dbType) {
 		dbType = dbType.toUpperCase();
@@ -146,6 +190,7 @@ public class TableInfoUtil {
 		try {
 			Properties props = new Properties();
 			props.put("remarksReporting", "true");
+			props.put("useInformationSchema", "true");	//用于取得表注释信息
 			props.put("user", user);
 			props.put("password", pwd);
 			Class.forName(driver);
@@ -186,7 +231,7 @@ public class TableInfoUtil {
 				+ "?useUnicode=true&characterEncoding=UTF-8";
 		String table = "oa_flow_type";
 		
-		List<Map<String, String>> list = getTableInfo(driver,url,user,pwd,table);
+		List<Map<String, String>> list = getColumnsInfo(driver,url,user,pwd,table);
 		System.out.println(list);
 		for(Map<String, String> map : list) {
 			System.out.println(map);

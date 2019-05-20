@@ -31,6 +31,8 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 	private int pageSize;
 	private String startEndDate;
 	private String r;	//随机数
+	private String od; //排序
+	private String ad; //升降（可取值 DESC  ASC）
 	private Map<String, Object> dataMap = new HashMap<String, Object>();
 	private ${beanName}MgmtService ${beanNameVar}MgmtService;
 
@@ -56,7 +58,15 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 		}
 
 		Ordering order = new Ordering();
-		order.addDesc("id");
+		if(OaUtils.isNotEmptyString(od)) {
+			if(OaUtils.isNotEmptyString(ad) && ad.equalsIgnoreCase(OaConstant.asc)) {
+				order.addAsc(od);
+			}else {
+				order.addDesc(od);
+			}
+		} else {
+			order.addDesc(OaConstant.id);
+		}
 		page = ${beanNameVar}MgmtService.findPagination(param, order, page);
 		dataMap.put(OaConstant.result, page);
 		dataMap.put(OaRM.rm, OaRM.success);
@@ -148,6 +158,22 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 
 	public void setR(String r) {
 		this.r = r;
+	}
+	
+	public String getOd() {
+		return od;
+	}
+
+	public void setOd(String od) {
+		this.od = od;
+	}
+
+	public String getAd() {
+		return ad;
+	}
+
+	public void setAd(String ad) {
+		this.ad = ad;
 	}
 
 }

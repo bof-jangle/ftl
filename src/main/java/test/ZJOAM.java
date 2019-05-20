@@ -53,7 +53,7 @@ public class ZJOAM {
 		String accessXmlFullName = System.getProperty("user.dir")+"/../"+coreName+"/"+xmlPath+"/"+ZJOAM.accessXmlName;
 		String beanNameVar = TableInfoUtil.column2modelProperty(tableName);								//获取表名对应的model变量名称
 		String beanName = beanNameVar.substring(0, 1).toUpperCase()+beanNameVar.substring(1);			//获取表名对应的model类型名称
-		List<Map<String, String>> list = TableInfoUtil.getTableInfo(driver,url,user,pwd,tableName);		//获取表中的列信息
+		List<Map<String, String>> list = TableInfoUtil.getColumnsInfo(driver,url,user,pwd,tableName);		//获取表中的列信息
 		if(list == null || list.size() == 0) {
 			System.out.println("未取得表的列信息");
 			return;

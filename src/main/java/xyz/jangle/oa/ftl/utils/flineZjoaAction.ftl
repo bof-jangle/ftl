@@ -44,7 +44,7 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 		page.setSize(pageSize);
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("model", getModel());
-		if (OaUtils.isNotEmptyString(this.getStartEndDate())) {
+		if (OaUtils.isNotEmpty(this.getStartEndDate())) {
 			String[] dateArr = this.getStartEndDate().split("-");
 			SimpleDateFormat sdf = new SimpleDateFormat(OaConstant.datetimeFormatterFromList);
 			try {
@@ -58,8 +58,8 @@ public class ${beanName}Action extends AbstractAction implements ModelDriven<${b
 		}
 
 		Ordering order = new Ordering();
-		if(OaUtils.isNotEmptyString(od)) {
-			if(OaUtils.isNotEmptyString(ad) && ad.equalsIgnoreCase(OaConstant.asc)) {
+		if(OaUtils.isNotEmpty(od)) {
+			if(OaUtils.isNotEmpty(ad) && ad.equalsIgnoreCase(OaConstant.asc)) {
 				order.addAsc(od);
 			}else {
 				order.addDesc(od);

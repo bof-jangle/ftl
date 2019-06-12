@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- bootstrap依赖 -->
 <title>${tableRemarks}_编辑页面_${versionInfo}</title>
 <jsp:include page="/css/includeCSS.jsp">
 	<jsp:param value="validator-out,formJ" name="csses"/>

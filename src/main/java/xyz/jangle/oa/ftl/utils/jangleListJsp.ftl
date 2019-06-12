@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- bootstrap依赖 -->
 <title>${tableRemarks}_列表页面</title>
     <jsp:include page="/css/includeCSS.jsp">
     	<jsp:param value="table-out" name="csses"/>
@@ -18,7 +19,7 @@
 	    <div>
 	        <form class="navbar-form" role="search" id="searchForm">
 	            <div class="form-group">
-	            	<span class="jangle-listjsp-remarks-span" >${tableRemarks} </span>
+	            	<span class="jangle-listjsp-remarks-span label label-info" >${tableRemarks} </span>
 	                <input type="text" class="form-control" name="" placeholder="查询待开发">
 	            </div>
 	            <input type="hidden" name="status" value="1">

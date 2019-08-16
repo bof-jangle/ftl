@@ -70,6 +70,7 @@
 		};
 		//标题格式化
 		function titleFormatter(value, row) {
+			value = titleLengthFormatter(value);
 			return '<a href="#" onclick="openDetail('
 					+ JSON.stringify(row).replace(/\"/g, "'") + ')">' + value
 					+ '</a>'

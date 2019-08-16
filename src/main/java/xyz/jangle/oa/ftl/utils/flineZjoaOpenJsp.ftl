@@ -31,27 +31,11 @@
 			<#list columnList as row>
 			<#if row.beanProperty != "id" && row.beanProperty != "oaUuid" && row.beanProperty != "oaCreateTime" && row.beanProperty != "oaUpdateTime">
 			<tr>
-				<td colspan="3">${row.remarks}</td>
+				<td colspan="3" width="10%">${row.remarks}</td>
 				<td colspan="21" id="${row.beanProperty}"></td>
 			</tr>
 			</#if>
 			</#list>
-			<tr>
-				<td colspan="3">demo</td>
-				<td colspan="3" id=""></td>
-				<td colspan="3">demo</td>
-				<td colspan="3" id=""></td>
-				<td colspan="3">demo</td>
-				<td colspan="3" id=""></td>
-				<td colspan="3">demo</td>
-				<td colspan="3" id=""></td>
-			</tr>
-			<tr>
-				<td colspan="3">demo</td>
-				<td colspan="9" id=""></td>
-				<td colspan="3">demo</td>
-				<td colspan="9" id=""></td>
-			</tr>
 			<tr>
 				<td colspan="3">附件</td>
 				<td colspan="21" id="attachments">

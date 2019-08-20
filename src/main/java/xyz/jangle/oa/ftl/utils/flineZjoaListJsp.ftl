@@ -69,11 +69,9 @@
 					+ ')">编辑</button>';
 		};
 		//标题格式化
-		function titleFormatter(value, row) {
-			value = titleLengthFormatter(value);
-			return '<a href="#" onclick="openDetail('
-					+ JSON.stringify(row).replace(/\"/g, "'") + ')">' + value
-					+ '</a>'
+		function titleFormatter(value,row){
+			var value2 = titleLengthFormatter(value);
+			return '<a href="#" title="'+value+'"  onclick="openDetail('+JSON.stringify(row).replace(/\"/g,"'")+')">'+value2+'</a>';
 		};
 		//查询
 		function search() {

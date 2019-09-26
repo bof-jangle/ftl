@@ -12,9 +12,9 @@ import com.fline.zjoa.mgmt.service.${beanName}MgmtService;
 import com.fline.zjoa.util.OaConstant;
 import com.fline.zjoa.util.OaRM;
 /**
- * <!-- 工具1.0生成 -->
+ * 	${tableRemarks} 业务实现层
  * @author huhj
- *
+ * @version ${versionInfo}
  */
 public class ${beanName}MgmtServiceImpl extends ServiceSupport implements ${beanName}MgmtService {
 

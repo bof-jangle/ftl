@@ -23,46 +23,53 @@ public class ${beanName}Ctrl {
 	@Autowired
 	private ${beanName}Service ${beanNameVar}Service;
 
-	@RequestMapping("/deleteByPrimaryKey.ctrl")
-	@ResponseBody
-	ResultModel<${beanName}> deleteByPrimaryKey(${beanName} record) {
-		return ${beanNameVar}Service.deleteByPrimaryKey(record);
-	}
-	
-	@RequestMapping("/batchDeleteByPrimaryKey.ctrl")
-	@ResponseBody
-	ResultModel<${beanName}> batchDeleteByPrimaryKey(${beanName} record) {
-		return ${beanNameVar}Service.batchDeleteByPrimaryKey(record);
-	}
-
+	// 增
 	@RequestMapping("/insert.ctrl")
 	@ResponseBody
 	ResultModel<${beanName}> insert(${beanName} record) {
 		return ${beanNameVar}Service.insertOrUpdate(record);
 	}
 
+	// 删
+	@RequestMapping("/deleteByPrimaryKey.ctrl")
+	@ResponseBody
+	ResultModel<${beanName}> deleteByPrimaryKey(${beanName} record) {
+		return ${beanNameVar}Service.deleteByPrimaryKey(record);
+	}
+
+	// 改
+	@RequestMapping("/updateByPrimaryKey.ctrl")
+	@ResponseBody
+	ResultModel<${beanName}> updateByPrimaryKey(${beanName} record) {
+		return ${beanNameVar}Service.updateByPrimaryKey(record);
+	}
+	
+	// 单查
 	@RequestMapping("/selectByPrimaryKey.ctrl")
 	@ResponseBody
 	ResultModel<${beanName}> selectByPrimaryKey(${beanName} record) {
 		return ${beanNameVar}Service.selectByPrimaryKey(record);
 	}
 
-	@RequestMapping("/selectAll.ctrl")
-	@ResponseBody
-	ResultModelList<${beanName}> selectAll() {
-		return ${beanNameVar}Service.selectAll();
-	}
-
+	// 分查
 	@RequestMapping("/selectPage.ctrl")
 	@ResponseBody
 	ResultModelList<${beanName}> selectPage(${beanName} record) {
 		return ${beanNameVar}Service.selectPage(record);
 	}
 
-	@RequestMapping("/updateByPrimaryKey.ctrl")
+	// 全查
+	@RequestMapping("/selectAll.ctrl")
 	@ResponseBody
-	ResultModel<${beanName}> updateByPrimaryKey(${beanName} record) {
-		return ${beanNameVar}Service.updateByPrimaryKey(record);
+	ResultModelList<${beanName}> selectAll() {
+		return ${beanNameVar}Service.selectAll();
+	}
+		
+	// 批删
+	@RequestMapping("/batchDeleteByPrimaryKey.ctrl")
+	@ResponseBody
+	ResultModel<${beanName}> batchDeleteByPrimaryKey(${beanName} record) {
+		return ${beanNameVar}Service.batchDeleteByPrimaryKey(record);
 	}
 
 }

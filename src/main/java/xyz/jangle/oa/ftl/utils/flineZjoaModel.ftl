@@ -2,9 +2,9 @@ package com.fline.zjoa.access.model;
 
 import com.feixian.tp.model.LifecycleModel;
 /**
- * <!-- 工具1.0生成 -->
+ * 	${tableRemarks} Model对象
  * @author huhj
- *
+ * @version ${versionInfo}
  */
 public class ${beanName} extends LifecycleModel {
 

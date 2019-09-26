@@ -14,8 +14,14 @@ import com.feixian.tp.common.vo.Ordering;
 import com.feixian.tp.common.vo.Pagination;
 import com.fline.zjoa.access.model.${beanName};
 import com.fline.zjoa.mgmt.service.${beanName}MgmtService;
+import com.fline.zjoa.util.OaConstant;
+import com.fline.zjoa.util.OaRM;
 import com.fline.zjoa.utils.JUnitRuntimeSupport;
-
+/**
+ * 	${tableRemarks} 单元测试
+ * @author huhj
+ * @version ${versionInfo}
+ */
 public class ${beanName}MgmtServiceImplTest extends JUnitRuntimeSupport {
 
 	// 用于保存方法调用前，新增的记录。
@@ -28,7 +34,10 @@ public class ${beanName}MgmtServiceImplTest extends JUnitRuntimeSupport {
 	public void setUp() throws Exception {
 		userLogin();
 		${beanName} model = new ${beanName}();
-		testModel = (${beanName})${beanNameVar}MgmtService.add${beanName}(model).get("result");
+		Map<String, Object> result = ${beanNameVar}MgmtService.add${beanName}(model);
+		assertEquals(OaRM.success, result.get(OaRM.rm));
+		testModel = (${beanName})result.get(OaConstant.result);
+		assertNotNull(testModel);
 	}
 
 	@After

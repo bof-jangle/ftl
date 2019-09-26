@@ -6,9 +6,9 @@ import com.feixian.tp.common.vo.Ordering;
 import com.feixian.tp.common.vo.Pagination;
 import com.fline.zjoa.access.model.${beanName};
 /**
- * <!-- 工具1.0生成 -->
+ * 	${tableRemarks} 业务接口层
  * @author huhj
- *
+ * @version ${versionInfo}
  */
 public interface ${beanName}MgmtService {
 	/**

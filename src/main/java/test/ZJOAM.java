@@ -53,6 +53,7 @@ public class ZJOAM {
 		String accessXmlFullName = System.getProperty("user.dir")+"/../"+coreName+"/"+xmlPath+"/"+ZJOAM.accessXmlName;
 		String beanNameVar = TableInfoUtil.column2modelProperty(tableName);								//获取表名对应的model变量名称
 		String beanName = beanNameVar.substring(0, 1).toUpperCase()+beanNameVar.substring(1);			//获取表名对应的model类型名称
+		String tableRemarks = TableInfoUtil.getTableRemarks(driver, url, user, pwd, tableName);
 		List<Map<String, String>> list = TableInfoUtil.getColumnsInfo(driver,url,user,pwd,tableName);		//获取表中的列信息
 		if(list == null || list.size() == 0) {
 			System.out.println("未取得表的列信息");
@@ -63,6 +64,8 @@ public class ZJOAM {
 		dataModel.put("beanName", beanName);			//类名
 		dataModel.put("beanNameVar", beanNameVar);	//类的变量名
 		dataModel.put("tableName", tableName);		//表名
+		dataModel.put("tableRemarks", tableRemarks);//表注释
+		dataModel.put("versionInfo", FtlConfig.version+"-"+v1d2);
 		
 		System.out.println("模型数据dataModel"+dataModel);
 //		print(map);
@@ -106,6 +109,7 @@ public class ZJOAM {
 			System.out.println("开始生成单元测试");
 			FreemarkerUtil.createFile("flineZjoaMgmtImplTest.ftl", dataModel, System.getProperty("user.dir")+"/../"+runTimeName+"/test/com/fline/zjoa/mgmt/service/impl/"+beanName+"MgmtServiceImplTest.java");
 		}
+		System.out.println("http://127.0.0.1/zjoa/childPage/"+beanNameVar+"/"+beanNameVar+"List.jsp");
 	}
 	/**
 	 * 打印模板
@@ -121,6 +125,13 @@ public class ZJOAM {
 		FreemarkerUtil.print("flineZjoaAction.ftl", dataModel);
 	}
 
+	/* ********以下是模版版本的升级说明*******/
 	
+	/**
+	 * 	1、增加了List页面加载成功的回调拓展功能
+	 * 	2、增加了Jangle1.2里的显示业务类型的类注释
+	 * 	3、增加各层的说明，以增加新员工对业务层次分层的理解。
+	 */
+	public static String v1d2 = "V.fline.1.2";
 
 }

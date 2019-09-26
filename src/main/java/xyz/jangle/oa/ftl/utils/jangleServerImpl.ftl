@@ -98,5 +98,10 @@ public class ${beanName}ServiceImpl extends BaseServiceImpl implements ${beanNam
 		${beanNameVar}Mapper.batchDeleteByPrimaryKey(record);
 		return new ResultModel<${beanName}>(CME.success);
 	}
+	
+	@Override
+	public ResultModel<${beanName}> selectByPrimaryKeyForAnnotation(${beanName} record) {
+		return new ResultModel<${beanName}>(${beanNameVar}Mapper.selectByPrimaryKeyForAnnotation(record.getId()));
+	}
 
 }

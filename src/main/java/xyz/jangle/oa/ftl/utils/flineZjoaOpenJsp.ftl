@@ -66,7 +66,7 @@
 			}
 		});
 		// 加载附件
-		findAttachmentsBySource("${tableName}");
+		findAttachmentsBySource("${tableName}",false);
 	</script>
 </body>
 </html>

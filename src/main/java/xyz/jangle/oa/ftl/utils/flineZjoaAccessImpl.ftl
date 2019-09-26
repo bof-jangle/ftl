@@ -5,9 +5,9 @@ import com.fline.zjoa.access.model.${beanName};
 
 import com.fline.zjoa.access.service.${beanName}AccessService;
 /**
- * <!-- 工具1.0生成 -->
+ * 	${tableRemarks}	DAO实现层
  * @author huhj
- *
+ * @version ${versionInfo}
  */
 public class ${beanName}AccessServiceImpl extends AbstractNamespaceAccessServiceImpl<${beanName}> implements ${beanName}AccessService {
 	

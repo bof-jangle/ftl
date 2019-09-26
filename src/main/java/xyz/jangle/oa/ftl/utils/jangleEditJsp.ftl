@@ -88,27 +88,32 @@
 
 		// dom加载完成之后
 		$(function() {
-			if (ps["id"])
-				$.ajax({
-					url : "/${beanNameVar}Ctrl/selectByPrimaryKey.ctrl",
-					dataType : "json",
-					cache : false,
-					data : {
-						"id" : ps["id"]
-					},
-					error : function(request, textStatus, errorThrown) {
-						jangleShowAjaxError(request, textStatus, errorThrown);
-					},
-					success : function(data) {
-						if (data != null && data.code == "10001"
-								&& data.model != null) {
-							for ( var item in data.model) {
-								$("#" + item).val(data.model[item]);
-							}
-							$("#deleteButton").show(); // 显示删除按钮
+			
+			// TODO 额外的逻辑。
+		
+			if (!ps["id"]){
+				return;
+			}
+			$.ajax({
+				url : "/${beanNameVar}Ctrl/selectByPrimaryKey.ctrl",
+				dataType : "json",
+				cache : false,
+				data : {
+					"id" : ps["id"]
+				},
+				error : function(request, textStatus, errorThrown) {
+					jangleShowAjaxError(request, textStatus, errorThrown);
+				},
+				success : function(data) {
+					if (data != null && data.code == "10001"
+							&& data.model != null) {
+						for ( var item in data.model) {
+							$("#" + item).val(data.model[item]);
 						}
+						$("#deleteButton").show(); // 显示删除按钮
 					}
-				});
+				}
+			});
 		})
 	</script>
 </body>

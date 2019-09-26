@@ -79,7 +79,7 @@
 			var param = {
 				silent : true
 			};
-			$('#dataTable').bootstrapTable('refresh', param);
+			//$('#dataTable').bootstrapTable('refresh', param);
 		};
 		//新增按钮 打开新增数据的页面
 		function addFormInfo() {
@@ -95,5 +95,11 @@
 		}
 	</script>
 	<script type="text/javascript" src="../../build/js/tableAjax.js"></script>
+	<script type="text/javascript">
+		// List加载成功后的回调方法
+	    function afterListSuccess(){
+	    	// 这里添加加载成功后的回调逻辑。
+	    }
+	</script>
 </body>
 </html>

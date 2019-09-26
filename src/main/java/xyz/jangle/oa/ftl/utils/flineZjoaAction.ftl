@@ -16,9 +16,9 @@ import com.fline.zjoa.util.OaConstant;
 import com.fline.zjoa.util.OaRM;
 import com.opensymphony.xwork2.ModelDriven;
 /**
- * <!-- 工具1.0生成 -->
+ * 	${tableRemarks} Action控制层
  * @author huhj
- *
+ * @version ${versionInfo}
  */
 public class ${beanName}Action extends AbstractAction implements ModelDriven<${beanName}> {
 

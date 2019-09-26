@@ -15,7 +15,7 @@ public class JangleM {
 	public static String xmlPath = "/src/main/resources";							//配置文件路径
 	public static String driver = "com.mysql.jdbc.Driver";			//指定数据库驱动
 	public static String user = "jangle";								//用户
-	public static String pwd = "";							//密码
+	public static String pwd = "1";							//密码
 	public static String url = "jdbc:mysql://hello.jangle.xyz:3306/demo"
 			+ "?characterEncoding=UTF8";	//数据库连接地址
 	
@@ -28,7 +28,7 @@ public class JangleM {
 	public static Boolean serversTest = true;
 
 	public static void main(String[] args) {
-//		buildFile("bs_role");
+		buildFile("bs_test");
 	}
 	/**
 	 * 

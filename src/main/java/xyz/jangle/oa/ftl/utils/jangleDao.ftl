@@ -10,7 +10,7 @@ import xyz.jangle.demoname.model.${beanName};
  */
 public interface ${beanName}Mapper extends BaseDaoMapper<${beanName}> {
 	
-	@Select("select * from ${tableName} where id = <#noparse>#{id}</#noparse>")
+	@Select("select id,uuid,create_time as createTime,update_time as updateTime,status,dm_desc as dmDesc,dm_desc2 as dmDesc2 from ${tableName} where id = <#noparse>#{id}</#noparse>")
 	${beanName} selectByPrimaryKeyForAnnotation(Long id);
 
 }

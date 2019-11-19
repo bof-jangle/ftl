@@ -98,6 +98,16 @@ public class ${beanName}ServiceImpl extends BaseServiceImpl implements ${beanNam
 		${beanNameVar}Mapper.batchDeleteByPrimaryKey(record);
 		return new ResultModel<${beanName}>(CME.success);
 	}
+
+	@Override
+	public ResultModel<${beanName}> batchDeleteByPrimaryKeyActually(${beanName} record) {
+		if(Jutils.isEmpty(record.getIds())) {
+			return new ResultModel<${beanName}>(CME.unFindIdsToDelete);
+		}
+		record.setIdsArray(record.getIds().split(JConstant.ywdh));
+		${beanNameVar}Mapper.batchDeleteByPrimaryKeyActually(record);
+		return new ResultModel<${beanName}>(CME.success);
+	}
 	
 	@Override
 	public ResultModel<${beanName}> selectByPrimaryKeyForAnnotation(${beanName} record) {

@@ -99,9 +99,12 @@ public class ${beanName}ServiceImplTest extends JUnitRunSupport {
 	public void testBatchDeleteByPrimaryKey() {
 		${beanName} record = new ${beanName}();
 		assertEquals(CME.unFindIdsToDelete.getCode(), ${beanNameVar}Service.batchDeleteByPrimaryKey(record).getCode());
+		assertEquals(CME.unFindIdsToDelete.getCode(), ${beanNameVar}Service.batchDeleteByPrimaryKeyActually(record).getCode());
 		record.setIds(test${beanName}.getId().toString());
 		${beanNameVar}Service.batchDeleteByPrimaryKey(record);
 		assertEquals("2", ${beanNameVar}Service.selectByPrimaryKey(test${beanName}).getModel().getStatus().toString());
+		${beanNameVar}Service.batchDeleteByPrimaryKeyActually(record);
+		assertEquals(null, ${beanNameVar}Service.selectByPrimaryKey(test${beanName}).getModel());
 	}
 	
 	@Test

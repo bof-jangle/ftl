@@ -72,4 +72,11 @@ public class ${beanName}Ctrl {
 		return ${beanNameVar}Service.batchDeleteByPrimaryKey(record);
 	}
 
+	// 批删Actually
+	@RequestMapping("/batchDeleteByPrimaryKeyActually.ctrl")
+	@ResponseBody
+	ResultModel<${beanName}> batchDeleteByPrimaryKeyActually(${beanName} record) {
+		return ${beanNameVar}Service.batchDeleteByPrimaryKeyActually(record);
+	}
+
 }

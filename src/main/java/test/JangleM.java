@@ -16,7 +16,7 @@ public class JangleM {
 	public static String driver = "com.mysql.jdbc.Driver";			//指定数据库驱动
 	public static String user = "jangle";								//用户
 	public static String pwd = "1";							//密码
-	public static String url = "jdbc:mysql://hello.jangle.xyz:3306/demo"
+	public static String url = "jdbc:mysql://cdb-29k0vh8q.bj.tencentcdb.com:10071/demo"
 			+ "?characterEncoding=UTF8";	//数据库连接地址
 	
 	
@@ -24,8 +24,15 @@ public class JangleM {
 	public static Boolean daos = true;
 	public static Boolean servers = true;
 	public static Boolean ctrl = true;
-	public static Boolean jsp = true;
 	public static Boolean serversTest = true;
+	public static Boolean jsp = true;
+	
+	public static Boolean jangleListJsp = true;
+	public static Boolean jangleDeletedListJsp = true;
+	public static Boolean jangleEditJsp = true;
+	public static Boolean jangleOpenJsp = true;
+	public static Boolean jangleEditJs = true;
+	
 
 	public static void main(String[] args) {
 		buildFile("bs_test");
@@ -89,10 +96,16 @@ public class JangleM {
 				jspPathFile.mkdirs();
 			}
 			System.out.println("开始生成前端jsp页面");
-			FreemarkerUtil.createFile("jangleListJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"List.jsp");
-			FreemarkerUtil.createFile("jangleEditJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"Edit.jsp");
-			FreemarkerUtil.createFile("jangleOpenJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"Open.jsp");
-			FreemarkerUtil.createFile("jangleEditJs.ftl", dataModel, jspPath+"/js/"+beanNameVar+"Edit.js");
+			if(jangleListJsp)
+				FreemarkerUtil.createFile("jangleListJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"List.jsp");
+			if(jangleDeletedListJsp)
+				FreemarkerUtil.createFile("jangleDeletedListJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"DeletedList.jsp");
+			if(jangleEditJsp)
+				FreemarkerUtil.createFile("jangleEditJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"Edit.jsp");
+			if(jangleOpenJsp)
+				FreemarkerUtil.createFile("jangleOpenJsp.ftl", dataModel, jspPath+"/"+beanNameVar+"Open.jsp");
+			if(jangleEditJs)
+				FreemarkerUtil.createFile("jangleEditJs.ftl", dataModel, jspPath+"/js/"+beanNameVar+"Edit.js");
 		}
 		if(serversTest) {
 			System.out.println("开始生成单元测试");

@@ -73,6 +73,13 @@ public interface ${beanName}Service {
 	 * @return
 	 */
 	ResultModel<${beanName}> batchDeleteByPrimaryKey(${beanName} record);
+
+	/**
+	 * 	批删Actually
+	 * @param record
+	 * @return
+	 */
+	ResultModel<${beanName}> batchDeleteByPrimaryKeyActually(${beanName} record);
 	
 	/**
 	 * 	注解查（注解方式）

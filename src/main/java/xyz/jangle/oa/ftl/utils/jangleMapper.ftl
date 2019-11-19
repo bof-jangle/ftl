@@ -37,6 +37,14 @@
                     ${mybatisLeft}listItem}
         </foreach>
 	</delete>
+	<delete id="batchDeleteByPrimaryKeyActually" parameterType="xyz.jangle.demoname.model.${beanName}">
+		delete from ${tableName}
+		where status = 2
+		and id in
+		<foreach close=")" collection="idsArray" item="listItem" open="(" separator=",">
+                    ${mybatisLeft}listItem}
+        </foreach>
+	</delete>
 	<insert id="insert"
 		parameterType="xyz.jangle.demoname.model.${beanName}" useGeneratedKeys="true" keyProperty="id">
 		insert into ${tableName} ( 

@@ -14,7 +14,7 @@ import xyz.jangle.utils.ResultModelList;
 public interface ${beanName}Service {
 	/**
 	 * 	增
-	 * 
+	 *
 	 * @param record
 	 * @return
 	 */
@@ -22,7 +22,7 @@ public interface ${beanName}Service {
 
 	/**
 	 * 	删
-	 * 
+	 *
 	 * @param record
 	 * @return
 	 */
@@ -30,7 +30,7 @@ public interface ${beanName}Service {
 
 	/**
 	 *	改
-	 * 
+	 *
 	 * @param record
 	 * @return
 	 */
@@ -38,7 +38,7 @@ public interface ${beanName}Service {
 
 	/**
 	 * 	单查
-	 * 
+	 *
 	 * @param record
 	 * @return
 	 */
@@ -46,7 +46,7 @@ public interface ${beanName}Service {
 
 	/**
 	 * 	参查
-	 * 
+	 *
 	 * @param param
 	 * @return
 	 */
@@ -54,7 +54,7 @@ public interface ${beanName}Service {
 
 	/**
 	 * 	分查
-	 * 
+	 *
 	 * @param record
 	 * @return
 	 */
@@ -62,11 +62,11 @@ public interface ${beanName}Service {
 
 	/**
 	 * 	全询
-	 * 
+	 *
 	 * @return
 	 */
 	ResultModelList<${beanName}> selectAll();
-	
+
 	/**
 	 * 	批删
 	 * @param record
@@ -80,7 +80,7 @@ public interface ${beanName}Service {
 	 * @return
 	 */
 	ResultModel<${beanName}> batchDeleteByPrimaryKeyActually(${beanName} record);
-	
+
 	/**
 	 * 	注解查（注解方式）
 	 * @return

@@ -88,9 +88,9 @@
 
 		// dom加载完成之后
 		$(function() {
-			
+
 			// TODO 额外的逻辑。
-		
+
 			if (!ps["id"]){
 				return;
 			}

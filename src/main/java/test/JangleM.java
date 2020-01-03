@@ -20,13 +20,13 @@ public class JangleM {
 			+ "?characterEncoding=UTF8";	//数据库连接地址
 	
 	
-	public static Boolean model = true;
-	public static Boolean daos = true;
-	public static Boolean servers = true;
-	public static Boolean ctrl = true;
-	public static Boolean serversTest = true;
-	public static Boolean jsp = true;
+	public static Boolean model = false;
+	public static Boolean daos = false;
+	public static Boolean servers = false;
+	public static Boolean ctrl = false;
+	public static Boolean serversTest = false;
 	
+	public static Boolean jsp = true;	//jsp总开关
 	public static Boolean jangleListJsp = true;
 	public static Boolean jangleDeletedListJsp = true;
 	public static Boolean jangleEditJsp = true;
@@ -35,7 +35,7 @@ public class JangleM {
 	
 
 	public static void main(String[] args) {
-		buildFile("bs_test");
+		buildFile("bs_file_bit");
 	}
 	/**
 	 * 

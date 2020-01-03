@@ -144,7 +144,7 @@ public class TableInfoUtil {
 		case "DATE":
 			return "java.util.Date";
 		case "BLOB":
-			return "byte[]";
+			return "byte[]";	// MyBatis MapFile use jdbcType="LONGVARBINARY"
 		case "CLOB":
 			return "String";
 		default:

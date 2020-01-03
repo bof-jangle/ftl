@@ -43,7 +43,7 @@ public class ${beanName}Ctrl {
 	ResultModel<${beanName}> updateByPrimaryKey(${beanName} record) {
 		return ${beanNameVar}Service.updateByPrimaryKey(record);
 	}
-	
+
 	// 单查
 	@RequestMapping("/selectByPrimaryKey.ctrl")
 	@ResponseBody
@@ -64,7 +64,7 @@ public class ${beanName}Ctrl {
 	ResultModelList<${beanName}> selectAll() {
 		return ${beanNameVar}Service.selectAll();
 	}
-		
+
 	// 批删
 	@RequestMapping("/batchDeleteByPrimaryKey.ctrl")
 	@ResponseBody

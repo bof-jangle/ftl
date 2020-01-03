@@ -106,7 +106,7 @@ public class ${beanName}ServiceImplTest extends JUnitRunSupport {
 		${beanNameVar}Service.batchDeleteByPrimaryKeyActually(record);
 		assertEquals(null, ${beanNameVar}Service.selectByPrimaryKey(test${beanName}).getModel());
 	}
-	
+
 	@Test
 	public void testSelectByPrimaryKeyForAnnotation(){
 		assertNotNull(${beanNameVar}Service.selectByPrimaryKeyForAnnotation(test${beanName}));

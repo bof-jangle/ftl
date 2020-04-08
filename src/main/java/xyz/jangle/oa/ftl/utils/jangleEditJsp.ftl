@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- bootstrap依赖 -->
 <title>${tableRemarks}_编辑页面_${versionInfo}</title>
 <jsp:include page="/css/includeCSS.jsp">
-	<jsp:param value="validator-out,fileinput,formJ" name="csses"/>
+	<jsp:param value="validator-out,fileinput,datetime,formJ" name="csses"/>
 </jsp:include>
 </head>
 <body>
@@ -42,7 +42,7 @@
 		</form>
 	</div>
 	<jsp:include page="/js/includeJS.jsp">
-		<jsp:param value="validator-out,fileinput,utilJ" name="jses"/>
+		<jsp:param value="validator-out,fileinput,datetime,utilJ" name="jses"/>
 	</jsp:include>
 	<script type="text/javascript" src="js/${beanNameVar}Edit.js"></script>
 	<script type="text/javascript">

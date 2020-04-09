@@ -60,7 +60,11 @@
 					if (data != null && data.code == "10001"
 							&& data.model != null) {
 						for ( var item in data.model) {
-							$("#" + item).val(data.model[item]);
+							if(item.lastIndexOf("Time") != -1){
+								$("#" + item).val(datetimeFormatterJ(data.model[item]));
+							}else{
+								$("#" + item).val(data.model[item]);
+							}
 						}
 					}
 				}
